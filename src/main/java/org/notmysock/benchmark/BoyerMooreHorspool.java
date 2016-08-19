@@ -24,14 +24,12 @@ public final class BoyerMooreHorspool {
     while (next < end) {
       int s_tmp = next;
       int p_tmp = plen - 1;
-      if (input[next - plen + 1] == pattern[0]) {
-        while (input[s_tmp] == pattern[p_tmp]) {
-          p_tmp--;
-          if (p_tmp < 0) {
-            return s_tmp;
-          }
-          s_tmp--;
+      while (input[s_tmp] == pattern[p_tmp]) {
+        p_tmp--;
+        if (p_tmp < 0) {
+          return s_tmp;
         }
+        s_tmp--;
       }
       next += shift[input[next]];
     }
